@@ -1,0 +1,39 @@
+#include <stdio.h>
+ 
+ //função recursiva
+int ContaLivro( int money, int preco){
+int nl,resto,ValesRestantes;
+  
+if(money<preco){
+  return 0;
+}
+else{
+  nl=money/preco;
+  resto= money % preco;
+  ValesRestantes = resto+nl;
+  return nl+ContaLivro(ValesRestantes,preco);
+}  
+}
+ 
+ 
+int main(void) {
+  int teste,dinheiro,preco,vale;
+  int QntLivro,QntVale,A[100];
+ scanf("%d",&teste);
+ 
+for(int i=0;i<teste;i++){
+  
+scanf("%d",&dinheiro);
+scanf("%d",&preco);
+scanf("%d",&vale);
+ 
+QntLivro= dinheiro/preco;
+QntVale= QntLivro;
+A[i] =ContaLivro(QntVale,vale)+ QntLivro;
+}
+for(int k=0;k<teste;k++){
+printf("\n%d",A[k]);
+}
+ 
+  return 0;
+}
